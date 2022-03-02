@@ -9,6 +9,8 @@ public class LevelParser : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
+    public GameObject waterPrefab;
+    public GameObject goalPrefab;
     public Transform environmentRoot;
 
     // --------------------------------------------------------------------------
@@ -78,11 +80,22 @@ public class LevelParser : MonoBehaviour
                 {
                     var question = Instantiate(questionBoxPrefab);
                     question.tag = "Question";
-                    //question.AddComponent(typeof(DestroyBrick));
+                    question.AddComponent(typeof(CoinScript));
                     question.transform.position = new Vector3(column, row, 0f);
                 }
+                else if (letter == 'w')
+                {
+                    var water = Instantiate(waterPrefab);
+                    water.transform.position = new Vector3(column, row, 0f);
+                }
+                else if (letter == 'g')
+                {
+                    var goal = Instantiate(goalPrefab);
+                    goal.transform.position = new Vector3(column, row, 0f);
+                    goal.AddComponent(typeof(Goal));
+                }
 
-                // Todo - Position the new GameObject at the appropriate location by using row and column
+                    // Todo - Position the new GameObject at the appropriate location by using row and column
                 // Todo - Parent the new GameObject under levelRoot
                 column++;
             }
@@ -91,7 +104,7 @@ public class LevelParser : MonoBehaviour
     }
 
     // --------------------------------------------------------------------------
-    private void ReloadLevel()
+    public void ReloadLevel()
     {
         foreach (Transform child in environmentRoot)
         {

@@ -6,25 +6,25 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     private float accumulatedTime;
-    private float initialTimerCount = 400f;
+    private float initialTimerCount = 100f;
     [SerializeField] private TMP_Text timerText;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
         accumulatedTime += Time.deltaTime;
-        if (accumulatedTime > 1f)
+        if (accumulatedTime > 1f && initialTimerCount!=0)
         {
             initialTimerCount = initialTimerCount - 1f;
             accumulatedTime = 0f;
             timerText.SetText( "TIME" + "\n" + initialTimerCount.ToString());
         }
-        
+
+        if (initialTimerCount < 1f)
+        {
+            Debug.Log("YOU LOST!");
+        }
+
     }
 }

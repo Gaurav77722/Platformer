@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Brick
   - Question
+  - Mario
   layers:
   - Default
   - TransparentFX
