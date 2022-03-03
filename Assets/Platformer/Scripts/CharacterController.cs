@@ -44,7 +44,6 @@ public class CharacterController : MonoBehaviour
         if (feetInContactWithGround && Input.GetKey(KeyCode.LeftShift))
         {
             maxRunSpeed = 30f;
-            Debug.Log(maxRunSpeed);
         }
 
         if (!Input.GetKey(KeyCode.LeftShift))

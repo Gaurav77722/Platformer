@@ -19,6 +19,6 @@ public class Points : MonoBehaviour
     public void scoreInc()
     {
         points = points + 100;
-        score.SetText("MARIO" + "           " + "WORLD" + "\n" + points.ToString() + "     1-1");
+        score.SetText("MARIO" + "           " + "           WORLD" + "\n" + points.ToString() + "                   1-1");
     }
 }
